@@ -1,8 +1,4 @@
 # prompt
-**bash** prompt with _exit status_ and _git branch_
-
-![Screenshot](screenshot.jpg?raw=true)
-
 I want my *bash prompt* to include:
  - **history** number (apply with !number)
  - number of background **jobs**
@@ -12,3 +8,7 @@ I want my *bash prompt* to include:
  - git **branch** (only if in git tree)
  - git **dirty** status (I:index M:modified U:untracked)
  - effective UID
+
+![Screenshot](screenshot.jpg?raw=true)
+
+**bash** prompt with _exit status_ and _git branch_
