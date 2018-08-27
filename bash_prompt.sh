@@ -12,10 +12,13 @@ PS1='\
 \[\e[35m\]\j \
 \[\e[34m\]\h:\
 ${PWD//\//\[\e[1;34m\]/\[\e[0;32m\]}\
-\[\e[1;31m\]$(i=$?; ((i)) && echo "[$i]")\
-$(H=`git symbolic-ref --short HEAD 2>/dev/null`
+\[\e[1;31m\]$(i=$?; ((i)) && echo -n "[$i]"
+
+H=`git symbolic-ref --short HEAD 2>/dev/null`
+
 if [[ $H ]]; then
 	W=`git status --porcelain 2>/dev/null`
+
 	if (($? == 128)); then
 		echo "\[\e[1;30m\] {$H}"  # in .git/
 	else 
@@ -37,6 +40,5 @@ if [[ $H ]]; then
 			echo "\[\e[1;36m\] {$H} \[\e[1;33m\]$F"
 		fi
 	fi
-fi)\
-\[\e[0;0m\] \$ '
+fi)\[\e[0;0m\] \$ '
 
