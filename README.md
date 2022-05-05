@@ -5,17 +5,18 @@ I want my *bash prompt* to include:
  - **host**name
  - working **dir**ectory
  - **exit** status of last command (only if != 0: "Rule of Silence")
- - git **branch** (only if in git tree)
+ - git **head** (only if in git tree)
  - git **dirty** status (I:index M:modified U:untracked)
  - effective **UID**
 
-![Screenshot](screenshot.jpg?raw=true)
-**bash** prompt with _exit status_ and _git branch_
+![Screenshot](screenshot.png?raw=true)  
+**bash** prompt with _exit status_ and _git head_
 
 **Test:**
 
-```source bash_prompt```
+```source bash_prompt.sh```
 
 **Install:**
 
-```cat bash_prompt >> ~/.bashrc```
+```cat bash_prompt.sh >> ~/.bashrc```
+
