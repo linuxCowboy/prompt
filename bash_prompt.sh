@@ -34,5 +34,6 @@ if ((! $?)); then
                 echo -ne "\[\e[1;30m\] {$H}"  # in .git/
         fi
 fi)\
+$(sleep 0.1)\
 \[\e[0m\] \$ '
 
