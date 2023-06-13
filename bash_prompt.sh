@@ -26,9 +26,9 @@ if ((! $?)); then
                 S=`git --no-optional-locks status --porcelain |
                         cut --bytes 1-2`
 
-                echo "$S" |grep -q "^[MTADRCU]"  && F+="I"
-                echo "$S" |grep -q "[MTADRCU]\$" && F+="M"
-                [[ $S =~ \? ]]                   && F+="U"
+                echo "$S" |grep -q "^[MTADRCU]"   && F+="I"
+                echo "$S" |grep -q  "[MTADRCU]\$" && F+="M"
+                [[ $S =~ \? ]]                    && F+="U"
 
                 echo -ne "\[\e[1;36m\] {$H}\[\e[1;33m\]${F:+ $F}"
         else
