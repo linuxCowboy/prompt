@@ -20,14 +20,15 @@ G=`git rev-parse --is-inside-work-tree 2>/dev/null`
 
 if ((! $?)); then
         H=`git symbolic-ref --short --quiet HEAD ||
-                git rev-list --abbrev-commit -n 1 HEAD`
+                git rev-parse --short HEAD`
         F=
         if [[ $G = true ]]; then
-                S=`git --no-optional-locks status`
+                S=`git --no-optional-locks status --porcelain |
+                        cut --bytes 1-2`
 
-                [[ $S == *Changes\ to\ be\ committed* ]]        && F+="I"
-                [[ $S == *Changes\ not\ staged\ for\ commit* ]] && F+="M"
-                [[ $S == *Untracked\ files* ]]                  && F+="U"
+                echo "$S" |grep -q "^[MTADRCU]"  && F+="I"
+                echo "$S" |grep -q "[MTADRCU]\$" && F+="M"
+                [[ $S =~ \? ]]                   && F+="U"
 
                 echo -ne "\[\e[1;36m\] {$H}\[\e[1;33m\]${F:+ $F}"
         else
