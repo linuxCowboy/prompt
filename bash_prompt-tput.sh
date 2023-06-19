@@ -1,4 +1,4 @@
-# prompt
+# prompt - tput
 #
 # bash prompt with exit status and git head
 #
@@ -9,10 +9,13 @@
 
 PS1='$(i=$?
 echo -ne "\[$(tput sgr0)\]"
+
 echo -ne "\[$(tput setaf 3)\]\! "  # history
 echo -ne "\[$(tput setaf 5)\]\j "  # jobs
 echo -ne "\[$(tput setaf 4)\]\h:"  # host
-echo -ne "${PWD//\//\[$(tput bold;tput setaf 4)\]/\[$(tput sgr0;tput setaf 2)\]}"
+
+echo -ne "${PWD//\//\[$(tput bold;tput setaf 4)\]/\[$(tput sgr0;tput setaf 2)\]}"  # path
+
 ((i)) && echo -n "\[$(tput bold;tput setaf 1)\][$i]"  # exit code
 
 G=`git rev-parse --is-inside-work-tree 2>/dev/null`
@@ -29,11 +32,13 @@ if ((! $?)); then
                 echo "$S" |grep -q  "[MTADRCU]\$" && F+="M"  # modified
                 [[ $S =~ \? ]]                    && F+="U"  # untracked
 
-                echo -ne "\[$(tput bold;tput setaf 6)\] {$H}\[$(tput setaf 3)\]${F:+ $F}"
+                echo -ne "\[$(tput bold;tput setaf 6)\] {$H}\[$(tput setaf 3)\]${F:+ $F}"  # head
         else
                 echo -ne "\[$(tput bold;tput setaf 0)\] {$H}"  # in .git/
         fi
 fi
+
 sleep 0.1  # fix for bg jobs
-echo -ne "\[$(tput sgr0)\] \$ "
+
+echo -ne "\[$(tput sgr0)\] \$ "  # uid
 )'

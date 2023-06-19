@@ -1,4 +1,4 @@
-# prompt
+# prompt - echo
 #
 # bash prompt with exit status and git head
 #
