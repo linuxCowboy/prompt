@@ -9,7 +9,7 @@ I want my *bash prompt* to include:
  - git **dirty** status (I:index M:modified U:untracked)
  - effective **UID**
 
-![revise](revise.png)\
+![revise](pics/revise.png)\
 **bash** prompt with _exit status_ and _git head_
 
 **Test:**
@@ -21,6 +21,6 @@ I want my *bash prompt* to include:
 `cat bash_prompt.sh >> ~/.bashrc`
 
 ---
-![bg-jobs](bg-jobs.png)\
+![bg-jobs](pics/bg-jobs.png)\
 flaw and **fix** for bg-jobs
 
