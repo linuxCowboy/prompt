@@ -12,15 +12,14 @@ I want my *bash prompt* to include:
 ![revise](pics/revise.png)\
 **bash** prompt with _exit status_ and _git head_
 
-**Test:**
-
-`source bash_prompt.sh`
-
-**Install:**
-
-`cat bash_prompt.sh >> ~/.bashrc`
-
 ---
 ![bg-jobs](pics/bg-jobs.png)\
 flaw and **fix** for bg-jobs
+
+---
+ - New: *locale* independent
+
+ - a version with *ansi*
+
+ - a version with *tput*
 
