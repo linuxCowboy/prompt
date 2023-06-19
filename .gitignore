@@ -1,3 +1,2 @@
-# vim swap files
-*.swp
-
+/MY-*/
+/my-*
